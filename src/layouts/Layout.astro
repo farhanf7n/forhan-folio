@@ -1,0 +1,114 @@
+---
+import {
+  ArrowUpRightIcon,
+  BookTextIcon,
+  BriefcaseIcon,
+  CalendarDays,
+  FolderIcon,
+  HomeIcon,
+  MessageCircle,
+} from 'lucide-react';
+import { NavigationButton } from '../components/NavigationButton';
+import { MobileNav } from '../components/MobileNav';
+import Analytics from '../components/Analytics.astro';
+import Cal from '../components/Cal.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const pagePath = Astro.url.pathname;
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+
+    <title>{title}</title>
+    <meta name='description' content={description} />
+
+    <link rel='preconnect' href='https://www.google-analytics.com/' />
+
+    <style is:global>
+      @keyframes fade-appear {
+        from {
+          @apply rounded-lg bg-gray-700 text-yellow-100;
+        }
+        to {
+        }
+      }
+
+      @keyframes slide-fade-up-in {
+        0% {
+          opacity: 0;
+          transform: translateY(0.5rem);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      [data-rmiz-modal-content] {
+        @apply bg-zinc-900 text-gray-100;
+      }
+
+      ::selection {
+        @apply bg-yellow-400 text-yellow-900;
+      }
+    </style>
+  </head>
+  <body class='bg-zinc-900 text-zinc-400'>
+    <div
+      class='mx-auto max-w-[750px] px-4 pb-20 pt-6 text-lg sm:px-12 md:px-16'
+    >
+      <div
+        class='flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-zinc-800 px-5 text-base sm:px-6'
+      >
+        <MobileNav client:load />
+        <div class='hidden items-center gap-6 sm:flex'>
+          <NavigationButton
+            href='/'
+            label='Home'
+            icon={HomeIcon}
+            isActive={pagePath === '/'}
+          />
+          <NavigationButton
+            href='/work'
+            label='Work'
+            icon={BriefcaseIcon}
+            isActive={pagePath.startsWith('/work')}
+          />
+          <NavigationButton
+            href='/projects'
+            label='Projects'
+            icon={FolderIcon}
+            isActive={pagePath.startsWith('/projects')}
+          />
+          <NavigationButton
+            href='/posts'
+            label='Posts'
+            icon={BookTextIcon}
+            isActive={pagePath.startsWith('/posts')}
+          />
+        </div>
+        <NavigationButton
+          label='Say Hi'
+          icon={MessageCircle}
+          href='mailto:farhanf7n@gmail.com'
+        />
+      </div>
+      <div>
+        <slot />
+      </div>
+    </div>
+
+    <Analytics />
+    <Cal />
+  </body>
+</html>

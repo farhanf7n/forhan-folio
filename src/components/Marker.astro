@@ -1,0 +1,9 @@
+---
+export interface Props {
+  color?: string;
+}
+
+const { color = 'bg-yellow-200' } = Astro.props;
+---
+
+<span class={color}><slot /></span>

@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ExpandButton } from '../components/ExpandButton';
+import { TextualLink } from '../components/TextualLink';
+import SocialLink from '../components/SocialLink.astro';
+import Testimonials from '../components/Testimonials.astro';
+---
+
+<Layout
+  title='Kamran Ahmed'
+  description='Full stack developer and a leader based in UK with over 10 years of experience working mostly with startups and scaleups.'
+>
+  <div class='mb-6 mt-8 flex items-center gap-4 sm:mb-8 sm:mt-16 sm:gap-5'>
+    <img
+      src='/farhan.jpg'
+      class='h-[65px] w-[65px] rounded-full object-cover sm:h-[80px] sm:w-[80px]'
+      alt='Kamran Ahmed'
+    />
+    <div class='flex flex-col gap-0.5'>
+      <h1 class='text-xl font-semibold text-white sm:text-3xl sm:font-bold'>
+        Farhan Ahmed
+      </h1>
+      <span class='hidden text-base sm:block sm:text-lg'>
+        Frontend Developer and UI/UX Designer
+      </span>
+      <span class='block text-base sm:hidden'>Developer based in PK</span>
+    </div>
+  </div>
+
+  <div
+    class='flex flex-col gap-3 text-base leading-7 sm:gap-4 sm:text-lg sm:leading-8'
+  >
+    <p>
+      I am a software developer and leader based in Pakistan. I have a 4years of
+      experience working mostly with startups and scale-ups
+
+      <p>
+        Over the years, I have worked with a variety of technologies<ExpandButton
+          client:load
+        >
+          including JavaScript, TypeScript, Node.js, React, React Native,
+          Electron, MongoDB, PostgreSQL, Docker and many others. I have worked</ExpandButton
+        >
+        in a variety of domains and have worn many different hats<ExpandButton
+          client:load
+          >. This has given me a broad perspective and a deep understanding of
+          the software development lifecycle.</ExpandButton
+        >
+      </p>
+
+      <p>
+        I am a Frontend developer and UI/UX Designer at heart<ExpandButton
+          client:load
+        >
+          (taking rough problem statements and turning them into polished
+          products from all aspects is my speciality)</ExpandButton
+        > with an eye for good design and expertise in frontend development, ui designs
+        and user experience.
+      </p>
+
+      <p
+        class='my-3 flex flex-col flex-wrap gap-2 sm:my-5 sm:flex-row sm:gap-6'
+      >
+        <SocialLink
+          href='https://github.com/farhanf7n'
+          network='github'
+          text='GitHub'
+        />
+        <SocialLink
+          href='https://www.linkedin.com/in/farhanf7n/'
+          network='linkedin'
+          text='LinkedIn'
+        />
+        <SocialLink
+          href='https://twitter.com/forhaned'
+          network='x'
+          text='Twitter'
+        />
+
+        <SocialLink
+          href='mailto:farhanf7n@gmail.com'
+          network='email'
+          text='Email'
+        />
+      </p>
+
+      <p class='mt-2 text-sm sm:mt-3 sm:text-lg'>
+        If you want to get in touch, feel free to <TextualLink
+          href='mailto:farhanf7n@gmail.com'
+          text='email me'
+        />.
+      </p>
+    </p>
+  </div>
+</Layout>

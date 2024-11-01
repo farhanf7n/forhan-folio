@@ -1,0 +1,313 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { EmploymentButton } from '../components/EmploymentButton.tsx';
+import { ExpandButton } from '../components/ExpandButton.tsx';
+import SkillBadge from '../components/SkillBadge.astro';
+import PageTitle from '../components/PageTitle.astro';
+
+type EmploymentType = {
+  location: string;
+  date: string;
+  title: string;
+  company: string;
+  description: string[];
+  bullets: string[];
+  skills: string[];
+};
+
+const employment: EmploymentType[] = [
+  {
+    location: 'England, UK',
+    date: 'Dec 2021  —  Present',
+    title: 'Head of Engineering',
+    company: 'Insight Partners',
+    description: [
+      'Insight Partners is a leading global venture capital and private equity firm investing in high-growth technology and software companies. The company has invested in more than 400 companies worldwide and has 90+ billion in assets under management.',
+      'I joined the company after the acquisition of roadmap.sh which I have been running as a solo founder since 2017. I am now working full-time on the product and responsible for everything from content to engineering to product to marketing and growth.',
+    ],
+    bullets: [
+      'Designed and developed https://roadmap.sh',
+      'Launched teams functionality used by +5k teams',
+      'Launched user accounts and learning features used by +800k developers.',
+      'Launched a custom roadmap builder generating +30k custom roadmaps',
+      'Built an in-house tool for sending newsletters to +1m subscribers',
+      'Developed a backoffice tool for reporting, managing the content and users',
+      'Automated all things related to infrastructure',
+      'Reporting infrastructure setup to keep an eye on everything',
+      'Made it to the 6th most starred project on GitHub with 200k+ GitHub Stars',
+      'Grew the traffic to +1m monthly visitors',
+      'Grew the newsletter to +1m subscribers',
+      "Grew the project's YouTube channel from 0 to +200K subscribers",
+      'Created Visual guides with millions of page views',
+      'Lead the community of +800k developers',
+    ],
+    skills: [
+      'TypeScript',
+      'React.js',
+      'Node.js',
+      'Astro',
+      'RESTful APIs',
+      'Tailwind',
+      'GitHub',
+      'Git',
+      'AWS',
+      'Terraform',
+      'Ansible',
+      'Docker',
+      'CI/CD',
+      'SEO',
+      'Content Writing',
+    ],
+  },
+  {
+    location: 'Berlin, Germany',
+    date: 'Jul 2021  —  Dec 2021',
+    title: 'Sr. Software Engineer',
+    company: 'Zalando',
+    description: [
+      'Zalando is the biggest online retailer of shoes, fashion and beauty across Europe.',
+      'I worked in the Zalon team which is a personal shopping service where customers get styled by professional stylists. I mainly helped with the CRM and the migration of the legacy product to a new architecture.',
+    ],
+    bullets: [
+      'Helped migrate the CRM from Leanplum to Braze having +40m users data',
+      'Refactored CRM pipelines to reduce the indexing times from 40min to 1min',
+      'Prepared the architectural migration plan for legacy "Zalon" product',
+      'Collaborated with different teams to get the buy-in for the new architecture',
+      'Refactor and implement features to support existing Zalon product',
+      'Worked closely with the product teams on refinements and feasibility analysis',
+      'Code reviews, mentoring, hiring, planning and so on.',
+    ],
+    skills: [
+      'Scala',
+      'AWS',
+      'PostgreSQL',
+      'Redis',
+      'RESTful APIs',
+      'Git',
+      'Docker',
+    ],
+  },
+  {
+    location: 'Dubai, UAE',
+    date: 'Dec 2019  —  Jun 2021',
+    title: 'Engineering Manager',
+    company: 'Tradeling',
+    description: [
+      'Tradeling is the UAE Government backed biggest B2B e-commerce platform that connects business buyers and sellers in the MENA region.',
+      'I was the employee #3 and helped build, launch and scale the platform to millions of products, hundreds of sellers and thousands of buyers.',
+    ],
+    bullets: [
+      'Helped build and launch the B2B commerce platform within 3 months',
+      'Built the engineering team from scratch to 50+ engineers within 1.5 years',
+      'Achieve +1M products, thousands of buyers and sellers, and millions in revenue',
+      'Lead 3 different teams, "Buyer Center", "Seller Center", and "Catalog PIM"',
+      'Proposed & led several product initiatives, including negotiated orders, & RFQs',
+      '"Negotiated Orders" feature helped increase the conversion rate by 100x.',
+      '"RFQs" feature helped increase the average order value by 10x.',
+      'Helped implement CI/CD, feature flags, distributed tracing, monitoring, & so on.',
+      'Skilling up the junior members by introducing mob/pair programming sessions',
+      'Helped build the engineering culture, hiring, mentoring, and so on.',
+    ],
+    skills: [
+      'Node.js',
+      'React.js',
+      'TypeScript',
+      'Redux',
+      'Jest',
+      'ElasticSearch',
+      'MongoDB',
+      'Redis',
+      'SOA',
+      'RESTful APIs',
+      'CI/CD',
+      'GitHub',
+      'DevOps',
+      'AWS',
+      'Docker',
+    ],
+  },
+  {
+    location: 'Dubai, UAE',
+    date: 'May 2019 - Dec 2019',
+    title: 'Software Engineering Lead',
+    company: 'Al Tayer Group',
+    description: [
+      'Al Tayer Group is a private holding company in the Middle East established in 1979. With more than 9000 employees, it operates in 12 countries and has 200 stores.',
+      'I worked as a Lead Full Stack Developer for "ounass.ae" which is the leading luxury fashion e-commerce platform in the Middle East.',
+    ],
+    bullets: [
+      'Developed vendor onboarding feature, reducing the lead time from 48hrs to 1hr',
+      'Developed a PIM tool to increase vendor productivity by tenfold & reduce errors.',
+      'Migrated the checkout and several other functionalities out of the legacy Magento APIs, reducing the load times from seconds to milliseconds',
+      'Implemented returns & refunds used by customers and fullfilment teams',
+    ],
+    skills: [
+      'Node.js',
+      'React.js',
+      'ElasticSearch',
+      'PostgreSQL',
+      'Redis',
+      'RESTful APIs',
+    ],
+  },
+  {
+    company: 'Almosafer (Seera Group)',
+    date: 'Nov 2015 — May 2019',
+    location: 'Dubai, UAE / Berlin, Germany',
+    title: 'Engineering Lead',
+    description: [
+      'Almosafer (Formerly Tajawal) is a Saudi-based online travel platform that offers flights, hotels, and travel packages. It is part of the Seera Group which is a significant contributor to the growth of the tourism economy of the Kingdom of Saudi Arabia',
+      'I was the pre-launch employee and helped build the platform from scratch to a multi-million dollar business. I contributed to the platform architecture, developed some of the core services, led several teams and initiatives, refactored several mission-critical projects as we grew, and so on.',
+    ],
+    skills: [
+      'PHP',
+      'Laravel',
+      'Node.js',
+      'Angular',
+      'MongoDB',
+      'Redis',
+      'RESTful APIs',
+      'CI/CD',
+      'SOA',
+      'AWS',
+      'Docker',
+      'RabbitMQ',
+      'Swagger',
+      'Git',
+      'ElasticSearch',
+    ],
+    bullets: [
+      'Helped build and launch flights and hotels booking platform as a pre-launch hire',
+      'Saw the company grow from 20 to 1000 people and tech team from 5 to 100+',
+      'Grew the platform from 0 to +40k flight and hotel orders per day',
+      'Developed some of the core services of the platform including Accounts, Payment gateway, Configuration, CRM, Loyalty service, and Fraud service.',
+      'Led the development of several mission-critical projects, including Back-office application used by more than 250 offline travel agent offices. Revamped the order management service to make it more scalable and fault-tolerant.',
+      'Led the DevEx team, where we built several internal tools to improve DX',
+      'Conducted several internal training sessions to skill up the junior members',
+      'Moved to our Berlin office to build a team and support the mobile and PWA apps',
+    ],
+  },
+  {
+    company: 'Strategic Systems International',
+    date: 'Jul 2014 — Nov 2015',
+    location: 'Lahore, Pakistan',
+    title: 'Software Engineer',
+    description: [
+      'SSI is a software development company that provides software solutions to businesses worldwide. I worked as a full-stack developer and contributed to several projects.',
+    ],
+    bullets: [
+      "Worked with several clients on various projects. Some of my contributions include rebuilding a legacy healthcare application (hbinsights.com) to make it scalable and easier to maintain. Development of an ed-tech platform's (academicapproach.com) test preparation and reporting modules, development an e-commerce application dealing in antiques etc.",
+    ],
+    skills: [
+      'PHP',
+      'Laravel',
+      'Symphony',
+      'Drupal',
+      'Wordpress',
+      'Angular',
+      'jQuery',
+      'MySQL',
+      '3rd Party APIs',
+      'MySQL',
+      'RESTful APIs',
+      'Git',
+    ],
+  },
+  {
+    company: 'DigitalSofts',
+    date: 'Jul 2013 — Jun 2014',
+    location: 'Faisalabad, Pakistan',
+    title: 'Software Engineer',
+    description: [
+      'DigitalSofts was a small software company run by a team of 5 (2 developers) and provided business management solutions to local businesses.',
+      'They had a desktop application called "DigitalManager" having several modules including Inventory, Point of Sale, Accounts, Production, Payroll, and so on. It was built using VB.NET and SQL Server. I was the only engineer at the company who developed for the web and helped them build a web-based version of the application.',
+    ],
+    bullets: [],
+    skills: ['PHP', 'SVN', 'Bootstrap', 'jQuery', 'MySQL'],
+  },
+];
+---
+
+<Layout
+  title='Farhan Ahmed - Work'
+  description='I have over 4 years of experience working with startups and scale ups. I have also worked with some large enterprises. Here is a brief overview of my employment history.'
+>
+  <PageTitle
+    title='Employment History'
+    description='I have been fortunate to work with some amazing teams. I have worked mostly with startups but also with some large enterprises. Here is a brief overview of my employment history.'
+  />
+
+  <div class='my-5 flex flex-col gap-5 sm:my-7'>
+    {
+      employment.map((job) => (
+        <div class={'overflow-hidden rounded-lg bg-zinc-800 p-3'}>
+          <div class='mb-2 flex items-center justify-between text-xs sm:text-sm'>
+            <span>{job.location}</span>
+            <span>{job.date}</span>
+          </div>
+          <div class='mb-3 flex flex-col items-start justify-between gap-2 text-balance text-lg sm:flex-row sm:items-center sm:text-xl'>
+            <h2 class='my-0 font-medium leading-7 text-zinc-300 sm:my-0 sm:leading-normal'>
+              {job.title} <span class='text-zinc-500'>at</span> {job.company}
+            </h2>
+            {job.company.toLowerCase() === 'zalando' && (
+              <EmploymentButton
+                text='Why I Left Early?'
+                type='zalandoLeft'
+                client:load
+              />
+            )}
+            {job.company.toLowerCase() === 'tradeling' && (
+              <EmploymentButton
+                text='Founding Engineer'
+                type='foundingTradeling'
+                client:load
+              />
+            )}
+            {job.company.toLowerCase() === 'almosafer (seera group)' && (
+              <EmploymentButton
+                text='Founding Engineer'
+                type='foundingAlmosafer'
+                client:load
+              />
+            )}
+            {job.company.toLowerCase() === 'digitalsofts' && (
+              <EmploymentButton
+                text='My First Job'
+                type='myFirstJob'
+                client:load
+              />
+            )}
+            {job.company.toLowerCase() === 'insight partners' && (
+              <EmploymentButton
+                text='via acquisition'
+                type='roadmapAcquisition'
+                client:load
+              />
+            )}
+          </div>
+          <div class='flex flex-col gap-2 text-sm leading-normal text-zinc-400 sm:gap-3 sm:text-base'>
+            {job.description.map((desc) => (
+              <p>{desc}</p>
+            ))}
+            <div class='my-1.5 flex flex-row flex-wrap gap-1.5'>
+              {job.skills.map((skill) => (
+                <SkillBadge text={skill} />
+              ))}
+            </div>
+            {job.bullets.length > 0 && (
+              <ExpandButton text='Show Detailed Contributions' client:load>
+                <ul class='flex flex-col gap-1'>
+                  {job.bullets.map((bullet) => (
+                    <li class='rounded-lg bg-gradient-to-r from-zinc-900/70 px-2 py-1.5'>
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </ExpandButton>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Layout>

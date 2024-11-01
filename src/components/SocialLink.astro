@@ -1,0 +1,20 @@
+---
+import SocialIcon from './SocialIcon.astro';
+
+export interface Props {
+  href: string;
+  text: string;
+  network: string;
+}
+
+const { href, text, network } = Astro.props;
+---
+
+<a
+  class='flex items-center gap-2 font-normal no-underline sm:underline underline-offset-4 transition-colors hover:text-zinc-200 sm:bg-transparent bg-zinc-800 rounded-lg py-1.5 sm:py-0 sm:px-0 px-3'
+  href={href}
+  target='_blank'
+>
+  <SocialIcon className='h-[20px] w-[20px]' network={network} />
+  {text}
+</a>

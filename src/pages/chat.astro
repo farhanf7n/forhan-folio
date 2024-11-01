@@ -1,0 +1,75 @@
+---
+import { TextualLink } from '../components/TextualLink.tsx';
+import Layout from '../layouts/Layout.astro';
+import { CalendarDays } from 'lucide-react';
+import PageTitle from '../components/PageTitle.astro';
+---
+
+<Layout title={"Let's Chat"} description={'Book a 15-minute chat with me'}>
+  <div class='container'>
+    <div class='mb-3 mt-8 sm:mb-8 sm:mt-16'>
+      <h1 class='text-2xl font-semibold text-zinc-100 sm:text-4xl'>
+        Let's Chat
+      </h1>
+    </div>
+
+    <p class='mb-5'>
+      I have been doing a lot of open-source and community work for the past few
+      years. My open-source work has reached millions of developers, and I rank <TextualLink
+        isYellow
+        text='#2 on GitHub'
+        href='https://x.com/kamrify/status/1750345095587754382'
+        target='_blank'
+      /> for the most-starred repositories. I am also the creator of <TextualLink
+        isYellow
+        href='https://roadmap.sh'
+        text='roadmap.sh'
+        target='_blank'
+      />, which is one of the largest developer communities, ranks #7 on GitHub
+      for the most-starred repositories and is visited by millions of developers
+      every month.
+    </p>
+
+    <p class='mb-6'>
+      Apart from all the community work, I have over 10 years of experience
+      mostly working with startups and building products. I have built and
+      scaled multiple products from scratch to millions of users and billions in
+      revenue.
+    </p>
+
+    <p class='mb-6'>
+      I owe a lot of my success to the amazing people I have met along the way.
+      With the hope of doing the same for others, I am offering 15-minute chats
+      to anyone who wants to talk about their projects, ideas, or anything else.
+      I am happy to help in any way I can.
+    </p>
+
+    <div class='flex flex-col gap-2 md:flex-row items-start md:items-center'>
+      <button
+        disabled={true}
+        data-cal-link='kamran/chat'
+        data-cal-namespace=''
+        data-cal-config='{"layout":"month_view"}'
+        class='inline-flex items-center gap-2 rounded-md border border-yellow-300 bg-yellow-300 py-1.5 pl-3 pr-5 text-base text-black transition-colors hover:bg-yellow-400 disabled:cursor-not-allowed disabled:opacity-40'
+      >
+        <CalendarDays className='h-4 w-4' />
+        Book a 15-minute chat
+      </button>
+
+      <p class='text-sm text-zinc-400 bg-red-800/30 p-2 rounded-2xl px-4'>
+
+        <!--left arrow-->
+        <span class='mr-2'>&#8592;</span>
+
+        I am currently not taking any new
+        bookings. Sorry!
+      </p>
+    </div>
+
+    <p class='mt-5 rounded-2xl bg-zinc-800/60 p-4'>
+      I really value our time and want to make sure we get the most out of our
+      chat. If you come with a few questions or ideas in mind, it’ll help us
+      dive right into a great conversation. Looking forward to it!
+    </p>
+  </div>
+</Layout>

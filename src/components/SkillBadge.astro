@@ -1,0 +1,11 @@
+---
+export interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<span class='rounded-full border border-zinc-700 px-2 text-sm text-zinc-400'>
+  {text}
+</span>

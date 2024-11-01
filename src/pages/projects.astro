@@ -1,0 +1,285 @@
+---
+import { ArrowUpRight } from 'lucide-react';
+import Layout from '../layouts/Layout.astro';
+import { TextualLink } from '../components/TextualLink';
+import { ProjectCard } from '../components/ProjectCard';
+import PageTitle from '../components/PageTitle.astro';
+
+type ExtraProject = {
+  title: string;
+  description: string;
+  link: string;
+};
+
+const moreProjects: ExtraProject[] = [
+  {
+    title: 'pennywise',
+    description: 'open any website or media in a floating window',
+    link: 'https://github.com/kamranahmedse/pennywise',
+  },
+  {
+    title: 'githunt',
+    description: 'hunt the most starred projects on GitHub',
+    link: 'https://github.com/kamranahmedse/githunt',
+  },
+  {
+    title: 'git-standup',
+    description: 'Recall what you did on the last working day',
+    link: 'https://github.com/kamranahmedse/git-standup',
+  },
+  {
+    title: 'design-patterns',
+    description: 'Design patterns explained simply',
+    link: 'https://github.com/kamranahmedse/design-patterns-for-humans',
+  },
+  {
+    title: 'aws-cost-cli',
+    description: 'AWS cost reporting with Slack integration',
+    link: 'https://github.com/kamranahmedse/aws-cost-cli',
+  },
+  {
+    title: 'local-ses',
+    description: 'Trap and test AWS SES emails locally',
+    link: 'https://github.com/kamranahmedse/local-ses',
+  },
+  {
+    title: 'itomate',
+    description: 'Automate your iTerm layouts and session setup',
+    link: 'https://github.com/kamranahmedse/itomate',
+  },
+  {
+    title: 'mondex',
+    description: 'Create and manage MongoDB indexes using code',
+    link: 'https://github.com/kamranahmedse/mondex',
+  },
+  {
+    title: 'db-playground',
+    description: 'Create sandbox environments for databases',
+    link: 'https://github.com/kamranahmedse/db-playground',
+  },
+  {
+    title: 'slack-msg',
+    description: 'Dead simple CLI to send messages to Slack',
+    link: 'https://github.com/kamranahmedse/slack-msg',
+  },
+  {
+    title: 'mongodumper',
+    description: 'Back up MongoDB database and upload to S3',
+    link: 'https://github.com/kamranahmedse/mongodumper',
+  },
+  {
+    title: 'git-first',
+    description: 'Chrome extension to open first commit of a repository',
+    link: 'https://github.com/kamranahmedse/db-playground',
+  },
+  {
+    title: 'brusher',
+    description: 'Create beautiful webpage backgrounds',
+    link: 'https://github.com/kamranahmedse/brusher',
+  },
+  {
+    title: 'datastructures-in-javascript',
+    description: 'Code for my YouTube series',
+    link: 'https://github.com/kamranahmedse/datastructures-in-javascript',
+  },
+  {
+    title: 'beetle',
+    description: 'Abuse unicode to incite mayhem',
+    link: 'https://github.com/kamranahmedse/beetle',
+  },
+];
+
+type Project = {
+  title: string;
+  description: string;
+  logoSrc: string;
+  links: {
+    website?: string;
+    github?: string;
+  };
+  stats: Record<string, any>;
+  images: { src: string; title: string }[];
+};
+
+const projects: Project[] = [
+  {
+    title: 'roadmap.sh',
+    logoSrc: '/projects/roadmap-logo.svg',
+    links: {
+      website: 'https://roadmap.sh',
+      github: 'https://github.com/kamranahmedse/developer-roadmap',
+    },
+    description:
+      'Learning paths for different roles and skills. Also features an AI roadmap generator, custom roadmap editor, teams usage and more.',
+    stats: {
+      'Visitors / Mo': '+1.3m',
+      'GitHub Stars': '+268k',
+      'Reg. Accounts': '+850k',
+      'Reg. Teams': '+10k',
+    },
+    images: [
+      {
+        src: '/projects/roadmap.png',
+        title: 'Interactive Roadmap',
+      },
+      {
+        src: '/projects/roadmap-editor.png',
+        title: 'Roadmap Editor',
+      },
+      {
+        src: '/projects/best-practices.png',
+        title: 'Best Practices',
+      },
+      {
+        src: '/projects/questions.png',
+        title: 'Questions',
+      },
+      {
+        src: '/projects/roadmaps-ai.png',
+        title: 'Roadmaps with AI',
+      },
+      {
+        src: '/projects/team-progress.png',
+        title: 'Team Progress',
+      },
+      {
+        src: '/projects/team-members.png',
+        title: 'Team Members',
+      },
+      {
+        src: '/projects/sharing-settings.png',
+        title: 'Sharing Settings',
+      },
+    ],
+  },
+  {
+    title: 'driver.js',
+    logoSrc: '/projects/driver-head.svg',
+    links: {
+      github: 'https://github.com/kamranahmedse/driver.js',
+      website: 'https://driverjs.com',
+    },
+    description:
+      'Lightweight, no-dependency, vanilla JS plugin to introduce new features, guide users through an interface, highlight things, show tooltips and more.',
+    stats: {
+      Downloads: '2.2m',
+      'GitHub Stars': '20.3k',
+      Website: '25k / mo',
+    },
+    images: [
+      {
+        src: '/projects/driver-marketing.png',
+        title: 'Homepage',
+      },
+      {
+        src: '/projects/driver-demo.png',
+        title: 'Usage Demo',
+      },
+      {
+        src: '/projects/driver-docs.png',
+        title: 'Documentation',
+      },
+    ],
+  },
+  {
+    title: 'time.fyi',
+    logoSrc: 'https://time.fyi/logo.svg',
+    links: {
+      website: 'https://time.fyi',
+    },
+    description:
+      'A fun project that I tinker with every now and then when I am bored. It features a timezone converter, daily planner, stop watch, timer and more.',
+    stats: {
+      'Hacker News': '+758 ups',
+      Website: '50k / mo',
+    },
+    images: [
+      {
+        src: '/projects/timefyi-timezones.png',
+        title: 'Timezone Tool',
+      },
+      {
+        src: '/projects/timefyi-daily-planner.png',
+        title: 'Daily Planner',
+      },
+      {
+        src: '/projects/timefyi-time-bar.png',
+        title: 'Day Progress',
+      },
+      {
+        src: '/projects/timefyi-analog.png',
+        title: 'Analog Clock',
+      },
+      {
+        src: '/projects/timefyi-time.png',
+        title: 'World Clock',
+      },
+      {
+        src: '/projects/timefyi-timer.png',
+        title: 'Timer',
+      },
+      {
+        src: '/projects/timefyi-timer-2.png',
+        title: 'Timer Progress',
+      },
+      {
+        src: '/projects/timefyi-stopwatch.png',
+        title: 'Stopwatch',
+      },
+    ],
+  },
+];
+---
+
+<Layout title='Kamran Ahmed - Projects' description='Apart from being a founding engineer, building and scaling startups to millions in revenue, here is a selected list of some of the projects I have built on the side.'>
+  <PageTitle
+    title='Projects'
+    description='I have worked on a variety of projects over the years; some of them as a hobby, some as a proof of concept and others to solve my own pain points. Here are some of the projects that I have worked on.'
+  />
+
+  <div class='mt-4 flex flex-col gap-5 sm:mt-7'>
+    {
+      projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          logoSrc={project.logoSrc}
+          links={project.links}
+          description={project.description}
+          stats={project.stats}
+          images={project.images}
+          client:load
+        />
+      ))
+    }
+    <p class='my-3'>
+      Here are some more projects that I have worked on. You can find the
+      complete list of projects on my <TextualLink
+        href='https://github.com/kamranahmedse'
+        text='GitHub profile'
+        target="_blank"
+      />.
+    </p>
+    <div class='flex flex-col gap-1.5'>
+      {
+        moreProjects.map((project) => (
+          <a
+            href={project.link}
+            target='_blank'
+            class='flex flex-col flex-wrap items-start rounded-md bg-zinc-800 px-2 py-2 transition-colors hover:bg-zinc-700/80 sm:flex-row sm:items-center'
+          >
+            <span class='flex items-center gap-0.5 font-medium text-zinc-50 sm:gap-1'>
+              <ArrowUpRight
+                size='1em'
+                strokeWidth='3'
+                className='mr-1 inline-block'
+              />
+              {project.title}
+            </span>
+            <span class='mx-2 hidden sm:inline-block'>-</span>
+            <span class='text-base sm:text-lg'>{project.description}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title={'Page not Found'}
+  description={'Looks like you are lost.'}
+>
+  <div class='flex min-h-[500px] flex-col py-32 text-left'>
+    <div class='border-l-[13px] border-l-red-400 pl-5'>
+      <h1 class='mb-2 text-5xl font-semibold text-neutral-300'>Oops!</h1>
+      <p class='text-base text-neutral-300'>
+        Looks like we don't have what you are looking for.
+      </p>
+    </div>
+    <img class='mt-7 rounded-xl' src='/oops.webp' alt='404' />
+  </div>
+</Layout>

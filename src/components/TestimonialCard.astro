@@ -1,0 +1,23 @@
+---
+export interface Props {
+  name: string;
+  role: string;
+  avatar: string;
+  description: string[];
+}
+
+const { name, role, avatar, description } = Astro.props;
+---
+
+<div class='rounded-xl bg-zinc-800 p-3 sm:p-4'>
+  <div class='mb-3 sm:mb-4 flex items-center gap-3'>
+    <img class='h-[40px] w-[40px] rounded-full' src={avatar} alt={name} />
+    <div>
+      <h3 class='text-base sm:text-lg font-semibold'>{name}</h3>
+      <p class='text-xs sm:text-sm text-zinc-400'>{role}</p>
+    </div>
+  </div>
+  <div class='flex flex-col gap-4'>
+    {description.map((desc) => <p class='text-sm sm:text-base'>{desc}</p>)}
+  </div>
+</div>

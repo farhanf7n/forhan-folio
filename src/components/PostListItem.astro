@@ -1,0 +1,46 @@
+---
+import { formatDate } from '../lib/date.ts';
+import { type Post } from '../lib/post';
+import { ArrowUpRight } from 'lucide-react';
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<a
+  href={post.frontmatter.externalUrl
+    ? post.frontmatter.externalUrl
+    : `/posts/${post.slug}`}
+  target={post.frontmatter.externalUrl ? '_blank' : '_self'}
+  class='group flex flex-col flex-wrap items-start text-balance text-lg font-medium text-white hover:text-yellow-400 sm:flex-row sm:items-center'
+>
+  {
+    post.frontmatter.externalUrl && (
+      <ArrowUpRight
+        size='1em'
+        strokeWidth='3'
+        className='mr-1 hidden sm:inline-block'
+      />
+    )
+  }
+  {
+    !post.frontmatter.externalUrl && (
+      <span class='mr-2 hidden h-1.5 w-1.5 bg-white transition-all group-hover:h-5 group-hover:bg-yellow-400 sm:block' />
+    )
+  }
+  <span
+    class='mr-1.5 flex-shrink-0 underline decoration-2 underline-offset-2 transition-colors'
+  >
+    {post.frontmatter.title}
+  </span>
+  {
+    ['textual', 'video'].includes(post.frontmatter.type) && (
+      <span class='text-sm text-zinc-500 sm:text-lg font-normal'>
+        ({formatDate(new Date(post.frontmatter.date))})
+      </span>
+    )
+  }
+</a>
