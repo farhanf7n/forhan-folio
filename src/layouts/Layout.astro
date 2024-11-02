@@ -4,6 +4,7 @@ import {
   BookTextIcon,
   BriefcaseIcon,
   CalendarDays,
+  NotebookText,
   FolderIcon,
   HomeIcon,
   MessageCircle,
@@ -83,6 +84,12 @@ const { title, description } = Astro.props;
             label='Work'
             icon={BriefcaseIcon}
             isActive={pagePath.startsWith('/work')}
+          />
+          <NavigationButton
+            href='/resume'
+            label='Resume'
+            icon={NotebookText}
+            isActive={pagePath.startsWith('/resume')}
           />
           <NavigationButton
             href='/projects'

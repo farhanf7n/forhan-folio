@@ -1,0 +1,454 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { EmploymentButton } from '../components/EmploymentButton.tsx';
+import { ExpandButton } from '../components/ExpandButton.tsx';
+import SkillBadge from '../components/SkillBadge.astro';
+import PageTitle from '../components/PageTitle.astro';
+
+type EmploymentType = {
+  id: string;
+  company: string;
+  companyFull: string;
+  website?: string;
+  position: string;
+  location?: string;
+  startDate: string;
+  endDate: string;
+  bullets: string[];
+  skills?: string[];
+  accomplished?: string[];
+  img?: string;
+};
+
+const employment: EmploymentType[] = [
+  {
+    id: 'moonbox',
+    company: 'MOONBOX',
+    companyFull: 'MOONBOX',
+    website: 'https://www.moonbox.ae/',
+    position: 'Frontend Developer',
+    location: 'Dubai, UAE',
+    startDate: '2023-01',
+    endDate: '2023-10',
+    bullets: [
+      'Worked closely with the UI/UX team in preparing the frontends for multiple different ongoing projects.',
+      'Developed several responsive web templates including dashboards, e-commerce templates, travel website, recipe website, Food ordering app and an event planner to name a few.',
+      "Revamped entire website leveraging Webflow's no-code features.",
+      'Utilized HTML, CSS, JavaScript, and React to develop user interfaces and implement features in accordance with design specifications.',
+      'Conducted code reviews and offered constructive feedback to team members, ensuring code quality and adherence to best practices.',
+    ],
+    skills: ['Tailwind, React, Next, Node, MongoDB, Express.JS'],
+  },
+  {
+    id: 'codeavour',
+    company: 'CODEAVOUR',
+    companyFull: 'CODEAVOUR',
+    website: 'https://codeavour.com/',
+    position: 'Frontend Developer',
+    startDate: '2021-12',
+    endDate: '2022-12',
+    bullets: [
+      'Converting Figma/ XD/ Photoshop designs to code.',
+      'Worked on the frontend of a high traffic travel website using React to showcase popular travel destinations and itineraries.',
+      'Designed an e-commerce platform using React to provide users with a seamless shopping experience. Integrated shopping cart functionality and product categories for easy navigation.',
+      'Participated in code reviews.',
+      'Worked on an internal Back-Office application used to manage clients, meetings, leads and reports.',
+      'Getting feedback from clients and incorporating that.',
+    ],
+  },
+  {
+    id: 'career-institute',
+    company: 'CAREER INSTITUTE',
+    companyFull: 'CAREER INSTITUTE',
+    website: 'https://iedea.com',
+    position: 'Frontend Developer',
+    startDate: '2020-06',
+    endDate: '2021-12',
+    bullets: [
+      "Maintaining the frontend of the institute's main website.",
+      'Making frontend templates using HTML/CSS and JavaScript. Created almost ~50 frontend templates.',
+      'Helped create starter kits for frontend (Bootstrap).',
+      'Meeting with clients to gather the requirements, get feedback on the templates.',
+    ],
+    img: '/digitalsofts.svg',
+  },
+  {
+    id: 'digital-softs',
+    company: 'DIGITAL SOFTS',
+    companyFull: 'DIGITAL SOFTS',
+    img: '/digitalsofts.svg',
+    website: 'https://www.digitalsofts.com/',
+    position: 'Web Developer',
+    startDate: '2019-01',
+    endDate: '2020-05',
+    bullets: [
+      'Digital Softs used to deliver desktop and web applications in several domains including Retail, Supply Chain, Manufacturing, Hospitality and Education.',
+      'I joined the team working on the web application of their product and developed the frontend part which included several modules including accounts, finance, reporting, product and asset management etc.',
+    ],
+    skills: ['Bootstrap, JavaScript, PHP, Laravel, CodeIgniter, C++'],
+  },
+];
+---
+
+<Layout
+  title='Farhan Ahmed - Resume'
+  description='I have over 4 years of experience working with startups and scale ups. I have also worked with some large enterprises. Here is a brief overview of my employment history.'
+>
+  <PageTitle
+    title='About Me'
+    description='At the age of 7, my passion for technology was sparked by my brother, who despite everything, engaged me in tech and science. His love for games and technology deeply influenced me and inspired my career choice. Now as a Software Engineer, I thrive on perpetual learning and the exploration of emerging technologies.'
+  />
+
+  <!-- <div class='my-5 flex flex-col gap-5 sm:my-7'></div> -->
+  <div class='mt-16 flex flex-col gap-8 space-y-2'>
+    <h1 class='-mb-2 text-2xl font-bold'>Experience</h1><div class='space-y-4'>
+      <div
+        class='flex items-end justify-start gap-4 max-sm:flex-col max-sm:items-start'
+      >
+        <div
+          class='relative aspect-square h-12 w-12 overflow-hidden rounded print:hidden'
+          style='will-change:transform;transform:translate3d(0,0,1px) scale(1)'
+        >
+          <img
+            alt='Satispay'
+            loading='lazy'
+            decoding='async'
+            data-nimg='fill'
+            class='aspect-square h-full w-full'
+            style='position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent'
+            sizes='100vw'
+            srcset='/_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=640&q=75 640w, /_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=750&q=75 750w, /_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=828&q=75 828w, /_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=1080&q=75 1080w, /_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=1200&q=75 1200w, /_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=1920&q=75 1920w, /_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=2048&q=75 2048w, /_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=3840&q=75 3840w'
+            src='/_next/image?url=%2Fcompanies%2Fsatispay.jpeg&w=3840&q=75'
+          />
+        </div>
+        <div class='flex flex-col items-start justify-start'>
+          <h3
+            class='text-neutral-12 font-mono text-lg font-bold sm:text-xl print:text-lg'
+          >
+            Software Engineer<!-- --> @ <!-- -->Satispay
+          </h3><p class='font-mono'>
+            Oct 2023 - Current<!-- -->, <!-- -->
+            <!-- -->Milan (Hybrid)
+          </p>
+        </div>
+        <p
+          class='flex uppercase max-sm:gap-2 sm:ml-auto sm:flex-col print:hidden'
+        >
+          <span class='text-right font-mono text-xs font-medium'>AWS</span><span
+            class='text-right font-mono text-xs font-medium'>React</span
+          ><span class='text-right font-mono text-xs font-medium'
+            >Typescript</span
+          >
+        </p>
+      </div><div class='text-neutral-11 leading-relaxed'></div>
+    </div><div class='space-y-4'>
+      <div
+        class='flex items-end justify-start gap-4 max-sm:flex-col max-sm:items-start'
+      >
+        <div
+          class='relative aspect-square h-12 w-12 overflow-hidden rounded print:hidden'
+          style='will-change:transform;transform:translate3d(0,0,1px) scale(1)'
+        >
+          <img
+            alt='Lokus'
+            loading='lazy'
+            decoding='async'
+            data-nimg='fill'
+            class='aspect-square h-full w-full'
+            style='position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent'
+            sizes='100vw'
+            srcset='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=3840&q=75 3840w'
+            src='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dlokus.io%26sz%3D128&w=3840&q=75'
+          />
+        </div><div class='flex flex-col items-start justify-start'>
+          <h3
+            class='text-neutral-12 font-mono text-lg font-bold sm:text-xl print:text-lg'
+          >
+            Software Engineer<!-- --> @ <!-- -->Lokus
+          </h3><p class='font-mono'>
+            Oct 2023 - Jan 2024<!-- -->, <!-- -->contract,<!-- -->
+            <!-- -->Remote
+          </p>
+        </div><p
+          class='flex uppercase max-sm:gap-2 sm:ml-auto sm:flex-col print:hidden'
+        >
+          <span class='text-right font-mono text-xs font-medium'>Node</span
+          ><span class='text-right font-mono text-xs font-medium'>Next.js</span
+          ><span class='text-right font-mono text-xs font-medium'
+            >Typescript</span
+          >
+        </p>
+      </div><div class='text-neutral-11 leading-relaxed'>
+        I collaborated on the MVP launch of the Lokus.io platform, by joining
+        the existing codebase and helping the founder to ship the product
+        faster. My primary responsibilities included developing new features,
+        improving the existing codebase, and migrate the platform to a monorepo
+        structure.
+      </div>
+    </div><div class='space-y-4'>
+      <div
+        class='flex items-end justify-start gap-4 max-sm:flex-col max-sm:items-start'
+      >
+        <div
+          class='relative aspect-square h-12 w-12 overflow-hidden rounded print:hidden'
+          style='will-change:transform;transform:translate3d(0,0,1px) scale(1)'
+        >
+          <img
+            alt='Palette'
+            loading='lazy'
+            decoding='async'
+            data-nimg='fill'
+            class='aspect-square h-full w-full'
+            style='position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent'
+            sizes='100vw'
+            srcset='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=3840&q=75 3840w'
+            src='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dpalette.dev%26sz%3D128&w=3840&q=75'
+          />
+        </div><div class='flex flex-col items-start justify-start'>
+          <h3
+            class='text-neutral-12 font-mono text-lg font-bold sm:text-xl print:text-lg'
+          >
+            Software Engineer, Rust<!-- --> @ <!-- -->Palette
+          </h3><p class='font-mono'>
+            Jul 2023<!-- -->, <!-- -->contract,<!-- -->
+            <!-- -->San Francisco, Remote
+          </p>
+        </div><p
+          class='flex uppercase max-sm:gap-2 sm:ml-auto sm:flex-col print:hidden'
+        >
+          <span class='text-right font-mono text-xs font-medium'>Rust</span
+          ><span class='text-right font-mono text-xs font-medium'>Tokio</span
+          ><span class='text-right font-mono text-xs font-medium'
+            >Apache Kafka</span
+          >
+        </p>
+      </div><div class='text-neutral-11 leading-relaxed'>
+        I assisted Palette in transitioning a TypeScript micro-service to Rust.
+        My primary responsibilities included utilising Rust’s asynchronous and
+        multithreaded capabilities to optimise the performance and reliability
+        of the micro-service. As result of the transition the new product
+        performance increased by 300% and is capable to ingest up to ~500k msg/s
+        from Kafka with 100mb flat usage
+      </div>
+    </div><div class='space-y-4'>
+      <div
+        class='flex items-end justify-start gap-4 max-sm:flex-col max-sm:items-start'
+      >
+        <div
+          class='relative aspect-square h-12 w-12 overflow-hidden rounded print:hidden'
+          style='will-change:transform;transform:translate3d(0,0,1px) scale(1)'
+        >
+          <img
+            alt='Aquacloud'
+            loading='lazy'
+            decoding='async'
+            data-nimg='fill'
+            class='aspect-square h-full w-full'
+            style='position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent'
+            sizes='100vw'
+            srcset='/_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=640&q=75 640w, /_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=750&q=75 750w, /_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=828&q=75 828w, /_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=1080&q=75 1080w, /_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=1200&q=75 1200w, /_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=1920&q=75 1920w, /_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=2048&q=75 2048w, /_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=3840&q=75 3840w'
+            src='/_next/image?url=%2Fcompanies%2Faquacloud.jpeg&w=3840&q=75'
+          />
+        </div><div class='flex flex-col items-start justify-start'>
+          <h3
+            class='text-neutral-12 font-mono text-lg font-bold sm:text-xl print:text-lg'
+          >
+            Software Engineer<!-- --> @ <!-- -->Aquacloud
+          </h3><p class='font-mono'>
+            Sept 2021 - Oct 2023<!-- -->, <!-- -->
+            <!-- -->Trento
+          </p>
+        </div><p
+          class='flex uppercase max-sm:gap-2 sm:ml-auto sm:flex-col print:hidden'
+        >
+          <span class='text-right font-mono text-xs font-medium'>Rust</span
+          ><span class='text-right font-mono text-xs font-medium'>React</span
+          ><span class='text-right font-mono text-xs font-medium'>Next.js</span
+          ><span class='text-right font-mono text-xs font-medium'
+            >Typescript</span
+          >
+        </p>
+      </div><div class='text-neutral-11 leading-relaxed'>
+        Led the front-end team in our endeavor to develop an accessible and
+        maintainable platform that drives innovation in the blue-economy sector.
+        In our tech stack, we leverage a monorepo architecture powered by
+        Next.js, Turbo, and Typescript. To ensure the quality of our codebase,
+        we employ Vitest for unit testing and conduct end-to-end testing using
+        Playwright. As part of my responsibilities, I oversee the maintenance of
+        our CI/CD pipeline with Github Actions. Additionally, I actively
+        contribute to the development and upkeep of internal utilities and
+        microservices written in Rust and Go.
+      </div>
+    </div><div class='space-y-4'>
+      <div
+        class='flex items-end justify-start gap-4 max-sm:flex-col max-sm:items-start'
+      >
+        <div
+          class='relative aspect-square h-12 w-12 overflow-hidden rounded print:hidden'
+          style='will-change:transform;transform:translate3d(0,0,1px) scale(1)'
+        >
+          <img
+            alt='Facile.it'
+            loading='lazy'
+            decoding='async'
+            data-nimg='fill'
+            class='aspect-square h-full w-full'
+            style='position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent'
+            sizes='100vw'
+            srcset='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=3840&q=75 3840w'
+            src='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dfacile.it%26sz%3D128&w=3840&q=75'
+          />
+        </div><div class='flex flex-col items-start justify-start'>
+          <h3
+            class='text-neutral-12 font-mono text-lg font-bold sm:text-xl print:text-lg'
+          >
+            React Engineer<!-- --> @ <!-- -->Facile.it
+          </h3><p class='font-mono'>
+            May 2021 - Sept 2021<!-- -->, <!-- -->
+            <!-- -->Milan
+          </p>
+        </div><p
+          class='flex uppercase max-sm:gap-2 sm:ml-auto sm:flex-col print:hidden'
+        >
+          <span class='text-right font-mono text-xs font-medium'>PHP</span><span
+            class='text-right font-mono text-xs font-medium'>React</span
+          ><span class='text-right font-mono text-xs font-medium'
+            >Typescript</span
+          >
+        </p>
+      </div><div class='text-neutral-11 leading-relaxed'>
+        During my tenure at Facile, I was entrusted with the development of an
+        internal tool specifically focused on refactoring the authentication
+        system to support multi-tab functionality. As part of my role, I
+        successfully created a new internal library that was subsequently
+        adopted by all teams within the organization.
+      </div>
+    </div><div class='space-y-4'>
+      <div
+        class='flex items-end justify-start gap-4 max-sm:flex-col max-sm:items-start'
+      >
+        <div
+          class='relative aspect-square h-12 w-12 overflow-hidden rounded print:hidden'
+          style='will-change:transform;transform:translate3d(0,0,1px) scale(1)'
+        >
+          <img
+            alt='CHILI'
+            loading='lazy'
+            decoding='async'
+            data-nimg='fill'
+            class='aspect-square h-full w-full'
+            style='position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent'
+            sizes='100vw'
+            srcset='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=3840&q=75 3840w'
+            src='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dit.chili.com%26sz%3D128&w=3840&q=75'
+          />
+        </div><div class='flex flex-col items-start justify-start'>
+          <h3
+            class='text-neutral-12 font-mono text-lg font-bold sm:text-xl print:text-lg'
+          >
+            Frontend Engineer<!-- --> @ <!-- -->CHILI
+          </h3><p class='font-mono'>
+            June 2020 - May 2021<!-- -->, <!-- -->
+            <!-- -->Milan
+          </p>
+        </div><p
+          class='flex uppercase max-sm:gap-2 sm:ml-auto sm:flex-col print:hidden'
+        >
+          <span class='text-right font-mono text-xs font-medium'>React</span
+          ><span class='text-right font-mono text-xs font-medium'
+            >Typescript</span
+          >
+        </p>
+      </div><div class='text-neutral-11 space-y-2 leading-relaxed'>
+        <p>
+          During my tenure at CHILI, I was responsible for the development and
+          maintenance of various sections of the Smart TV app and website, using
+          React as the primary framework. A significant contribution I made was
+          driving the adoption of Typescript across the company's front-end
+          teams. This involved gradually refactoring existing codebases and
+          teaching best practices.
+        </p><p>
+          Here are some notable achievements during my time at CHILI:
+        </p><ul class='my-2 list-disc pl-4'>
+          <li>Led the successful adoption of Typescript company-wide.</li><li>
+            Revamped the build system by migrating from grunt to Webpack 5.
+          </li><li>
+            Led the transition to a monorepo structure to accommodate internal
+            new projects.
+          </li><li>
+            Conducted extensive refactoring of the testing suite, leveraging
+            jest.
+          </li>
+        </ul><p>
+          These initiatives aimed to bolster development processes, ensure code
+          quality, and foster an efficient and scalable environment at CHILI.
+        </p>
+      </div>
+    </div><div class='space-y-4'>
+      <div
+        class='flex items-end justify-start gap-4 max-sm:flex-col max-sm:items-start'
+      >
+        <div
+          class='relative aspect-square h-12 w-12 overflow-hidden rounded print:hidden'
+          style='will-change:transform;transform:translate3d(0,0,1px) scale(1)'
+        >
+          <img
+            alt='Simultech'
+            loading='lazy'
+            decoding='async'
+            data-nimg='fill'
+            class='aspect-square h-full w-full'
+            style='position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent'
+            sizes='100vw'
+            srcset='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=3840&q=75 3840w'
+            src='/_next/image?url=https%3A%2F%2Fwww.google.com%2Fs2%2Ffavicons%3Fdomain%3Dsimultech.it%26sz%3D128&w=3840&q=75'
+          />
+        </div><div class='flex flex-col items-start justify-start'>
+          <h3
+            class='text-neutral-12 font-mono text-lg font-bold sm:text-xl print:text-lg'
+          >
+            Fullstack Developer<!-- --> @ <!-- -->Simultech
+          </h3><p class='font-mono'>
+            Dec 2018 - June 2020<!-- -->, <!-- -->
+            <!-- -->Rome
+          </p>
+        </div><p
+          class='flex uppercase max-sm:gap-2 sm:ml-auto sm:flex-col print:hidden'
+        >
+          <span class='text-right font-mono text-xs font-medium'>Java</span
+          ><span class='text-right font-mono text-xs font-medium'>React</span
+          ><span class='text-right font-mono text-xs font-medium'>Spring</span
+          ><span class='text-right font-mono text-xs font-medium'
+            >Typescript</span
+          >
+        </p>
+      </div><div class='text-neutral-11 space-y-2 leading-relaxed'>
+        <ul class='list-disc pl-4'>
+          <li>
+            <strong>thess.io</strong>: Developed the complete front-end using
+            React (Next.js) and contributed to the backend using Java
+            (SpringBoot). Thess was an event management platform utilized by AS
+            Roma (2019-2020) and Heineken (2019) for managing premium
+            hospitality at Olympic Stadium.
+          </li><li>
+            <strong>flyup.aero</strong>: Migrated the front-end platform from
+            Angular to React, ensuring a seamless transition.
+          </li><li>
+            <a class='text-primary-11 font-bold' href='https://schoolr.net'
+              >schoolr.net</a
+            >: Assisted the client by transforming their design into a
+            functional application. This involved migrating an existing
+            PHP-based web application to Next.js and developing an
+            administration panel.
+          </li>
+        </ul><p>
+          Apart from these specific projects, I also worked on various other
+          endeavors for multiple clients. My primary focus was building
+          front-end solutions using React, while the backend was developed using
+          Node.js, SpringBoot (Java/Kotlin), or a combination of both
+          technologies.
+        </p>
+      </div>
+    </div>
+  </div>
+</Layout>
