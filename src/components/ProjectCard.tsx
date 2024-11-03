@@ -118,14 +118,14 @@ export function ProjectCard(props: ProjectCardProps) {
       </div>
       {showDemo && (
         <div className="-mx-3 -mb-3 mt-2 bg-gradient-to-b to-zinc-900 p-3">
-          <div className="flex items-center gap-2 sm:gap-0 justify-between sm:flex-row flex-row">
+          <div className="flex flex-row items-center justify-between gap-2 sm:flex-row sm:gap-0">
             <div className="relative flex flex-row items-center gap-2">
               {images.map((item, counter) => {
                 const isActive = counter === activeImage;
                 if (!isActive) {
                   return (
                     <button
-                      className="w- relative hidden sm:flex items-center"
+                      className="w- relative hidden items-center sm:flex"
                       onClick={() => {
                         setActiveImage(counter);
                       }}
