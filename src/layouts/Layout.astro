@@ -35,7 +35,27 @@ const { title, description } = Astro.props;
 
     <link rel='preconnect' href='https://www.google-analytics.com/' />
 
+    <!-- Space Mono Font -->
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'
+      rel='stylesheet'
+    />
+
     <style is:global>
+      .space-mono-regular {
+        font-family: 'Space Mono', monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .space-mono-bold {
+        font-family: 'Space Mono', monospace;
+        font-weight: 700;
+        font-style: normal;
+      }
+
       @keyframes fade-appear {
         from {
           @apply rounded-lg bg-gray-700 text-yellow-100;
@@ -78,12 +98,6 @@ const { title, description } = Astro.props;
             label='Home'
             icon={HomeIcon}
             isActive={pagePath === '/'}
-          />
-          <NavigationButton
-            href='/work'
-            label='Work'
-            icon={BriefcaseIcon}
-            isActive={pagePath.startsWith('/work')}
           />
           <NavigationButton
             href='/resume'
